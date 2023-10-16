@@ -7,9 +7,11 @@ import { Auth } from '../../../shared/model/Auth';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import { MessageResponse } from '../../../shared/model/MessageResponse';
+import {signIn} from 'next-auth/react'
+import { useRouter } from 'next/navigation';
 
 export default function Register() {
-
+  const router = useRouter();
   const MySwal = withReactContent(Swal)
 
 
@@ -28,6 +30,12 @@ export default function Register() {
         title: <p>Successful Registration</p>,
         icon: 'success'
       })
+      const res = await signIn('credentials', {username: email, password: password, redirect: false});
+      
+      if(res?.ok){
+        return router.push('/');
+      }
+
       console.log(response);
     } catch (error) {
       const errorMessage = ((error as AxiosError).response?.data as MessageResponse ).error.message;
