@@ -1,9 +1,8 @@
 import NextAuth from "next-auth"
-import type { AuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 import AuthService from "../../../../../shared/service/AuthService"
 
-export const authOptions: AuthOptions = {
+const handler = NextAuth({
     providers: [
         CredentialsProvider({
             name: 'Credentials',
@@ -39,8 +38,6 @@ export const authOptions: AuthOptions = {
             return session;
         },
     },
-}
+});
 
-const handler = NextAuth(authOptions)
-
-export { handler as GET, handler as POST }
+export { handler as GET, handler as POST };
