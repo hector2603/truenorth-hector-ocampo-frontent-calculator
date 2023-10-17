@@ -93,8 +93,8 @@
 
 .paginationContainer {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
 }
 
 .paginationContainer span {
@@ -291,11 +291,27 @@
 }
 
 /* Mobile */
-@media (max-width: 700px) {
+@media (max-width: 1000px) {
   .content {
     padding: 4rem;
   }
 
+  .operations{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content:flex-start
+  }
+
+  .main{
+    margin: 0;
+    padding: 0;
+  }
+
+  .tablerecords{
+    width: 100%;
+  }
   .grid {
     grid-template-columns: 1fr;
     margin-bottom: 120px;
