@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Calculator App
+
+This project is created using TypeScript, React.js, and Next.js. The idea of this project is to create a frontend app with user authentication (login and register), JWT token management, and session handling for the user. All the actual calculations and operations are performed on a backend server, while the frontend app is responsible for displaying the information.
+
 
 ## Getting Started
 
-First, run the development server:
+First, run the development server locally :
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Live version
 
-## Learn More
+You can access the live version of the app at the following URL:
 
-To learn more about Next.js, take a look at the following resources:
+[https://truenorth-hector-ocampo-frontent-calculator.vercel.app/](https://truenorth-hector-ocampo-frontent-calculator.vercel.app/) in this url you find the live version of the app. 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+In this app, you can register, login, and perform basic calculator operations. Each operation has a cost associated with it, and your balance decreases with each operation. When you register for the app, your balance is automatically set to 100. However, when your balance reaches zero, you won't be able to perform any more operations.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
