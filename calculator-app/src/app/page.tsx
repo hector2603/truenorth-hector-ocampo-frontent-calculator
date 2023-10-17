@@ -2,15 +2,19 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 import {useSession} from 'next-auth/react'
+import OperationSelector from './components/OperationSelector';
+import 'bootstrap/dist/css/bootstrap.css';
+import RecordTable from './components/RecordTable';
 
 export default function Home() {
-  const {data: session, status} = useSession();
-  console.log(session);
 
   return (
     <main className={styles.main}>
       <h1 className={styles.tittle}>Calculator App</h1>
-      <p>{status}</p>
+      <section className={styles.mainSection}>
+        <OperationSelector />
+        <RecordTable />
+      </section>
     </main>
   )
 }

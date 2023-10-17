@@ -1,8 +1,8 @@
 export class TokenResponse {
 
-    token : String
+    token : string
 
-    constructor(token: String) {
+    constructor(token: string) {
         this.token = token;
     }
 }

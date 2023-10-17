@@ -9,6 +9,7 @@ import withReactContent from 'sweetalert2-react-content'
 import { MessageResponse } from '../../../shared/model/MessageResponse';
 import {signIn} from 'next-auth/react'
 import { useRouter } from 'next/navigation';
+import 'bootstrap/dist/css/bootstrap.css';
 
 export default function Register() {
   const router = useRouter();

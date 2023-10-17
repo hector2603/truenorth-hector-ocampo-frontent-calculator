@@ -1,14 +1,11 @@
 'use client'
 import styles from '../page.module.css'
-import axios, { AxiosError } from 'axios';
 import { FormEvent } from 'react';
-import AuthService from '../../../shared/service/AuthService';
-import { Auth } from '../../../shared/model/Auth';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
-import { MessageResponse } from '../../../shared/model/MessageResponse';
 import {signIn} from 'next-auth/react'
 import { useRouter } from 'next/navigation';
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 export default function Login() {
@@ -58,6 +55,9 @@ export default function Login() {
           </div>
           <input type="submit" value="Login" className={styles.submit} />
         </form>
+        <p>Don't have an account yet? Create one</p>
+        <button onClick={() => router.push("/register")} className={styles.submit}>Register</button>
+
       </section>
     </main>
   )

@@ -1,6 +1,7 @@
 import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 import AuthService from "../../../../../shared/service/AuthService"
+import UserService from "../../../../../shared/service/UserService";
 
 const handler = NextAuth({
     providers: [
@@ -12,10 +13,17 @@ const handler = NextAuth({
             },
             async authorize(credentials, req) {
                 if (typeof credentials !== "undefined") {
-                    const res = await AuthService.login({ username: credentials.username, password: credentials.password })
-                    if (typeof res !== "undefined") {
-                        return { id: "", apiToken: res.token }
-                    } else {
+                    try {
+                        const res = await AuthService.login({ username: credentials.username, password: credentials.password })
+                        if (typeof res !== "undefined") {
+                            const user = await UserService.getUser(res.token);
+                            console.log("user -> ", user)
+                            return { id:user.data.id, username:user.data.username, status:user.data.status, apiToken: res.token}
+                        } else {
+                            return null
+                        }
+                    } catch (error) {
+                        console.log("error -> ", error)
                         return null
                     }
                 } else {
